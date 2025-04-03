@@ -3,7 +3,7 @@ import { apiConfig } from "./api-config"
 
 export async function scheduleFetchByDay({ date }){
   try {
-    // fazendo a requisição
+    // faz a requisição
     const response = await fetch(`${apiConfig.baseURL}/schedules`)
 
     // converte para json
@@ -11,12 +11,12 @@ export async function scheduleFetchByDay({ date }){
 
     // filtra os agendamentos do dia selecionado
     const dailySchedules = data.filter((schedule) =>
-      dayjs(date).isSame(schedule.wen, "day"))
+      dayjs(date).isSame(schedule.when, "day"))
 
     return dailySchedules
     
   } catch(error) {
-    console.error(error)
+    console.log(error)
     alert("Nao foi possivel listar os agendamentos")
   }
 }
